@@ -13,12 +13,21 @@ export const CounterDisplay: React.FC<DisplayType> = ({
                                                           maxValue,
                                                           minValue,
                                                       }) => {
+    const renderDisplayValue = () => {
+        if(maxValue < 0 || minValue < 0) {
+            return 'Incorrect value'
+        }
+        if(setting) {
+            return 'enter values and press "set"'
+        }
+
+        return value;
+    }
 
     return (
         <Styles.CounterDisplay>
             <Styles.DisplayValue isMaxValue={value === maxValue} error={ maxValue<0 || minValue<0}>
-                {((maxValue < 0 || minValue < 0) && 'Incorrect value') ||
-                    (setting && 'enter values and press "set"' || value)}
+                {renderDisplayValue()}
             </Styles.DisplayValue>
         </Styles.CounterDisplay>
     );

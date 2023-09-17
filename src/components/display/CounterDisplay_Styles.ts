@@ -9,9 +9,8 @@ const CounterDisplay = styled.div`
   background-color: rgba(75, 52, 52, 0.77);
   border-radius: 10px;
   padding: 16px;
-  min-width: 248px;
+  min-width: 280px;
   margin: 20px 0;
-  width: 100%;
 `
 
 const DisplayValue = styled.div<DisplayValueType>`
