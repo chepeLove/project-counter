@@ -14,8 +14,10 @@ export const Input: React.FC<InputType> = ({
                                                inputOnChange,
                                            }) => {
     const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
-        setSetting(true)
-        inputOnChange(Math.trunc(event.currentTarget.valueAsNumber))
+        if(!isNaN(event.currentTarget.valueAsNumber)){
+            inputOnChange(Math.trunc(event.currentTarget.valueAsNumber))
+            setSetting(true)
+        }
     }
     return (
         <Styles.Input type='number' onChange={onChangeHandler} value={value}/>
