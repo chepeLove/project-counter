@@ -14,7 +14,7 @@ export const CounterDisplay: React.FC<DisplayType> = ({
                                                           minValue,
                                                       }) => {
     const renderDisplayValue = () => {
-        if(maxValue < 0 || minValue < 0) {
+        if(maxValue < 0 || minValue < 0 || minValue>maxValue) {
             return 'Incorrect value'
         }
         if(setting) {
@@ -26,7 +26,7 @@ export const CounterDisplay: React.FC<DisplayType> = ({
 
     return (
         <Styles.CounterDisplay>
-            <Styles.DisplayValue isMaxValue={value === maxValue} error={ maxValue<0 || minValue<0}>
+            <Styles.DisplayValue isMaxValue={value === maxValue} error={ maxValue<0 || minValue<0 || minValue>maxValue}>
                 {renderDisplayValue()}
             </Styles.DisplayValue>
         </Styles.CounterDisplay>

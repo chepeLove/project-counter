@@ -74,7 +74,7 @@ export const Scoreboard: React.FC<ScoreboardType> = ({
                 />
             </FlexWrapper>
             <Button name={'set'}
-                    disabled={maxValue<0 || minValue<0}
+                    disabled={maxValue<0 || minValue<0 || minValue>maxValue}
                     callBack={setToLocalStorageHandler}/>
         </Styles.Scoreboard>
     );
